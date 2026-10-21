@@ -1,0 +1,236 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Global Unrest Throughlines</title>
+<style>
+/* Companion reading piece to the survey page: same blueline/cyanotype
+   print language, but laid out like a document mounted on a light table —
+   a numbered-line margin (deposition/abstract-of-title convention) running
+   beside continuous prose, "ARTICLE" headers for the eight sections, and a
+   closing register table rather than a card grid. */
+:root{
+  --bg:#e8eef1; --panel:#ffffff; --panel-2:#f3f6f3; --ink:#1c3347; --ink-dim:#536b7a;
+  --line:#b9cdd6; --flag:#b5661a;
+  --display:'Newsreader',Georgia,serif;
+  --body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',Consolas,monospace;
+
+  --c-democracy:#9c6a1a; --c-palestine:#9c3434; --c-war:#4f6b40;
+  --c-pipelines:#a4591a; --c-wetsuweten:#276b56; --c-climate:#2a6e78;
+  --c-treaties:#7a5e26; --c-policing:#5f4578;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#142a3e; --panel:#1c3a52; --panel-2:#17324a; --ink:#edf1ec; --ink-dim:#a3bbca;
+    --line:#3f647f; --flag:#e8a33d; color-scheme:dark;
+    --c-democracy:#d9a13e; --c-palestine:#d2635f; --c-war:#8aab6f;
+    --c-pipelines:#d4823f; --c-wetsuweten:#4caa8b; --c-climate:#4fa6ae;
+    --c-treaties:#bfa05a; --c-policing:#9b85c4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#142a3e; --panel:#1c3a52; --panel-2:#17324a; --ink:#edf1ec; --ink-dim:#a3bbca;
+  --line:#3f647f; --flag:#e8a33d; color-scheme:dark;
+  --c-democracy:#d9a13e; --c-palestine:#d2635f; --c-war:#8aab6f;
+  --c-pipelines:#d4823f; --c-wetsuweten:#4caa8b; --c-climate:#4fa6ae;
+  --c-treaties:#bfa05a; --c-policing:#9b85c4;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--body);
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.sheet{max-width:760px;margin:0 auto;padding-block:36px 72px;}
+
+h1,h2{font-family:var(--display);text-wrap:balance;margin:0;font-weight:500;}
+a{color:var(--flag);}
+
+.titleblock{
+  border:1px solid var(--line);border-bottom-width:3px;padding:20px 22px 18px;
+  background:var(--panel);margin-bottom:28px;
+}
+.titleblock h1{font-size:clamp(24px,5vw,33px);font-style:italic;line-height:1.15;}
+.titleblock .sub{font-size:14px;color:var(--ink-dim);margin-top:10px;line-height:1.6;max-width:62ch;}
+.titleblock .fields{font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);margin-top:14px;
+  display:flex;gap:18px;flex-wrap:wrap;}
+
+nav.register{
+  margin:0 0 40px;border:1px solid var(--line);background:var(--panel);padding:4px 0;
+}
+nav.register ol{margin:0;padding:0;list-style:none;}
+nav.register li{border-top:1px solid var(--line);}
+nav.register li:first-child{border-top:none;}
+nav.register a{
+  display:flex;gap:12px;padding:9px 16px;text-decoration:none;color:var(--ink);font-size:13.5px;
+}
+nav.register a .n{font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);flex:none;width:18px;}
+nav.register a:hover{background:var(--panel-2);}
+
+/* ---- article body: numbered-line margin ---- */
+article{counter-reset:line;}
+article section{margin-bottom:46px;scroll-margin-top:16px;}
+article .art-head{
+  display:flex;align-items:baseline;gap:10px;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+article .art-head .artno{font-family:var(--mono);font-size:12px;color:var(--flag);white-space:nowrap;}
+article h2{font-size:21px;}
+article p{
+  font-size:15.5px;line-height:1.75;max-width:64ch;margin:0 0 14px;
+  counter-increment:line; position:relative; padding-left:28px;
+}
+article p::before{
+  content:counter(line);position:absolute;left:0;top:1px;width:20px;text-align:right;
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);opacity:.6;
+}
+article p:last-child{margin-bottom:0;}
+article strong{color:var(--ink);}
+
+/* ---- register (topic table) ---- */
+table.topic-register{width:100%;border-collapse:collapse;font-size:13.5px;}
+table.topic-register caption{text-align:left;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink-dim);margin-bottom:10px;}
+table.topic-register th{text-align:left;font-family:var(--mono);font-size:11px;color:var(--ink-dim);
+  font-weight:500;padding:0 10px 8px;border-bottom:1px solid var(--line);}
+table.topic-register td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+table.topic-register tr:last-child td{border-bottom:none;}
+table.topic-register .tag{display:flex;align-items:center;gap:8px;font-family:var(--display);
+  font-style:italic;font-size:15px;white-space:nowrap;}
+table.topic-register .tag .sw{width:11px;height:11px;flex:none;background:var(--c);border:1.5px solid var(--ink);}
+table.topic-register .dates{font-family:var(--mono);font-size:12px;color:var(--ink-dim);white-space:nowrap;}
+table.topic-register .start-here{font-size:13px;}
+
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11px;color:var(--ink-dim);text-align:center;}
+
+@media (max-width:640px){
+  table.topic-register thead{display:none;}
+  table.topic-register td{display:block;padding:4px 0;border-bottom:none;}
+  table.topic-register tr{display:block;padding:12px 0;border-bottom:1px solid var(--line);}
+  article p{padding-left:0;}
+  article p::before{display:none;}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<div class="sheet">
+
+  <div class="titleblock">
+    <h1>Global Unrest: Throughlines in Jeff Kisling's Writing</h1>
+    <div class="sub">Eight topics, one recurring set of mechanisms. This draws on verified fact sheets plus a close read of a sample of the original posts behind each one, tracing the narrative arc, the key turning points, and Jeff's own stance across the whole archive.</div>
+    <div class="fields"><span>source: channelsintoknowledge.com</span><span>span: 1868–2026</span><span>companion: Global Unrest, Surveyed</span></div>
+  </div>
+
+  <nav class="register">
+    <ol>
+      <li><a href="#s1"><span class="n">01</span>The common mechanism</a></li>
+      <li><a href="#s2"><span class="n">02</span>Extraction &amp; the climate-war economy</a></li>
+      <li><a href="#s3"><span class="n">03</span>One policing playbook</a></li>
+      <li><a href="#s4"><span class="n">04</span>Authoritarianism as a global tide</a></li>
+      <li><a href="#s5"><span class="n">05</span>Gaza: the sharpest test case</a></li>
+      <li><a href="#s6"><span class="n">06</span>Jeff's own throughline</a></li>
+      <li><a href="#s7"><span class="n">07</span>Topic register</a></li>
+      <li><a href="#s8"><span class="n">08</span>About this corpus</a></li>
+    </ol>
+  </nav>
+
+  <article>
+
+    <section id="s1">
+      <div class="art-head"><span class="artno">Art. 01</span><h2>The common mechanism: land, treaty, and &ldquo;plenary power&rdquo;</h2></div>
+      <p>The deepest throughline in this archive is not any single conflict but a legal-historical mechanism: a power is granted or seized, a treaty or agreement is signed in apparent good faith, and then that same power unilaterally breaks it once the land underneath turns out to be worth more than promised. Jeff's treaties-and-sovereignty writing names the mechanism precisely &mdash; the 1868 Fort Laramie Treaty promised the Black Hills to the Lakota &ldquo;for absolute and undisturbed use,&rdquo; broken within a decade once gold was found; the 1903 Supreme Court case <em>Lone Wolf v. Hitchcock</em> then supplied the legal doctrine &mdash; &ldquo;plenary power&rdquo; &mdash; that let Congress abrogate Native treaties at will, a doctrine the Court itself admitted was wrongful in 1980 (<em>United States v. Sioux Nation</em>) while still refusing to return the land.</p>
+      <p>That same pattern &mdash; a formal recognition that changes nothing on the ground &mdash; repeats across the archive. Canada and British Columbia signed a memorandum of understanding with Wet'suwet'en hereditary chiefs in May 2020 recognizing their title, while construction of the Coastal GasLink pipeline through their unceded territory continued regardless. And in Jeff's reading, the same doctrine underwrites the occupation of Palestinian land: a formal structure of rights that the facts on the ground never honor.</p>
+      <p>Jeff's own route into this material was not abstract. He traces it to the September 2018 First Nation-Farmer Climate Unity March, ninety-four miles along the Dakota Access Pipeline route from Des Moines to Fort Dodge, which he describes (in &ldquo;Embodied Land,&rdquo; 2026) as the moment a lifelong, unexamined relationship to Iowa farmland became, for the first time, felt as something built on a specific, locatable theft &mdash; &ldquo;I could feel the evil below us.&rdquo;</p>
+    </section>
+
+    <section id="s2">
+      <div class="art-head"><span class="artno">Art. 02</span><h2>Extraction and the climate-war economy</h2></div>
+      <p>Jeff's climate writing does not treat climate change as a discrete environmental problem running alongside the others; by the early 2020s it is explicitly the same economy. His 2021 piece on COP26 (&ldquo;COP 26 and continued colonial capitalism&rdquo;) quotes an Indigenous delegate calling the climate-summit process itself &ldquo;a continuation of colonialism where people come not to listen to us, but to make money from our land and natural resources.&rdquo; His 2025 post &ldquo;The Fires in Gaza are the Fires in LA&rdquo; draws the line all the way through: the U.S. military as the world's largest institutional carbon emitter, the bombing of Gaza and the Los Angeles wildfires named as outputs of one &ldquo;climate-sacrificial militarism,&rdquo; with the fight over Atlanta's Weelaunee Forest (&ldquo;Cop City&rdquo;) as its domestic front.</p>
+      <p>The same economy explains why pipeline fights (Keystone XL, Dakota Access, Line 3, and then Iowa's carbon-capture pipelines) keep recurring in the archive as climate fights, Indigenous-sovereignty fights, and free-speech fights all at once &mdash; the land under a pipeline route and the land under a treaty claim are frequently the same land, and the money moving through both is extraction capital. Jeff's own 2018 pivot &mdash; from protesting a single pipeline toward trying to build &ldquo;prefab climate-refugee communities&rdquo; in anticipation of a UN estimate of up to a billion people displaced by climate change &mdash; marks the point where he stops treating climate as a policy fight to be won and starts treating displacement and resource conflict as the coming shape of unrest itself.</p>
+    </section>
+
+    <section id="s3">
+      <div class="art-head"><span class="artno">Art. 03</span><h2>One policing playbook, many geographies</h2></div>
+      <p>Running underneath the extraction economy is a strikingly consistent policing response to anyone who stands in its way, and Jeff's writing tracks it across jurisdictions. When Jessica Reznicek and Ruby Montoya damaged Dakota Access Pipeline equipment in 2017, Iowa prosecutors eventually secured a &ldquo;terrorism enhancement&rdquo; on her sentence despite no injuries; Jeff explicitly threads that case forward to the January 2023 killing of Manuel &ldquo;Tortuguita&rdquo; Ter&aacute;n at the Atlanta &ldquo;Cop City&rdquo; protest camp, reading both as the same escalation &mdash; from criminalizing property damage to treating protest itself as a lethal threat.</p>
+      <p>The same playbook appears, with a different flag, at Wet'suwet'en checkpoints in northern British Columbia: the RCMP's &ldquo;Community-Industry Response Group,&rdquo; created explicitly to police resource-project opposition, mounted assault-rifle raids on land defenders in 2019, 2020 and 2021, and a court later found some of its officers' conduct &ldquo;racist&rdquo; &mdash; while upholding the activists' convictions anyway. Jeff calls the November 2021 raid &ldquo;Canada's Standing Rock&rdquo; by name. In the United States, Jeff's race-and-policing writing draws the 2014 Ferguson uprising, the militarized response to Dakota Access protesters at Standing Rock, and the 2020 George Floyd uprising into one line, explicitly describing the 2020 unrest as part of &ldquo;global uprisings&hellip; demanding changes to policing.&rdquo; By 2025, the same apparatus turns toward immigration enforcement and campus speech &mdash; National Guard and Marines deployed against protesters in Los Angeles, international students' visas revoked over Palestine advocacy, and, in his telling, a Minneapolis &ldquo;Operation Metro Surge&rdquo; in late 2025 that killed two civilians during federal immigration enforcement. Different target, different country, same instrument: the state treating dissent itself as the threat to be neutralized.</p>
+    </section>
+
+    <section id="s4">
+      <div class="art-head"><span class="artno">Art. 04</span><h2>Authoritarianism as a global tide</h2></div>
+      <p>Jeff's democracy-and-authoritarianism writing is where this pattern gets named directly rather than traced through specific conflicts. It opens in 2016 with Indiana Governor Mike Pence trying to block Syrian refugee resettlement and the shock of that November's election, moves through the 2018 family-separation crisis and Iowa's own 2018 law criminalizing &ldquo;critical infrastructure sabotage&rdquo; (aimed squarely at pipeline protest), and arrives, by his account, at a settled diagnosis by 2025: campus crackdowns, visa revocations, military deployment against domestic protesters, and the Minneapolis killings are not isolated overreaches but features of an authoritarian turn.</p>
+      <p>His June 2025 post &ldquo;The center cannot hold&rdquo; is the clearest single statement of the connection this document is tracing: he argues that the same logic that scapegoats immigrants domestically scapegoats Palestinians and Iranians abroad, and that domestic authoritarianism, the war on Gaza, economic strain, and climate pressure are, in his reading, one interlocking crisis rather than four separate stories. It's also where he's most explicit that what sustains him through what he calls &ldquo;so much trauma&rdquo; is not confidence that politics will turn out well, but Quaker spiritual community and practice &mdash; concrete, not consoling.</p>
+    </section>
+
+    <section id="s5">
+      <div class="art-head"><span class="artno">Art. 05</span><h2>Gaza: the sharpest current test case</h2></div>
+      <p>Palestine and Gaza function in this archive as the place where Jeff's longer-running decolonial framework becomes most explicit and most urgent at once. His earliest posts, from October 2023, largely relay institutional Quaker positions &mdash; FCNL and AFSC calling for a ceasefire and condemning both the Hamas attack and the bombing of Gaza. Through 2024, as he tracks South Africa's genocide case at the International Court of Justice (filed December 2023, provisional-measures ruling January 2024) and the International Criminal Court's November 2024 arrest warrants for Israeli and Hamas leaders, his own posts shift from relaying statements to direct moral argument, invoking Daniel Berrigan's draft-era witness as a personal touchstone.</p>
+      <p>By 2025 the coverage becomes closer to a running record: the January ceasefire, its collapse in March, spring famine warnings, and the May 2025 drone strike on the Freedom Flotilla vessel <em>Conscience</em> &mdash; a post he titles &ldquo;All part of the same genocide,&rdquo; explicitly linking Gaza to Lebanon, Yemen, and the policing of protesters and academics in the West as one global pattern. His most direct synthesis, &ldquo;The Modern Face of Empire&rdquo; (June 2025), lays out a formal comparison between United States and Israeli settler-colonial practice &mdash; the clearest place in the whole archive where the land-and-treaty mechanism described in Article 1 is applied, point for point, to a live conflict rather than a historical one.</p>
+    </section>
+
+    <section id="s6">
+      <div class="art-head"><span class="artno">Art. 06</span><h2>Jeff's own throughline: Scattergood 1969 to &ldquo;active objection&rdquo; 2026</h2></div>
+      <p>Underneath all seven topics is one biography, and it starts specifically: on November 26, 1969, at Scattergood Friends School, seventeen-year-old Jeff registered for the draft against his own conviction &mdash; his journal entry that night read &ldquo;Registered, but not convinced!&rdquo; He returned his registration certificate to the draft board on January 2, 1970, and broke with Selective Service entirely by letter on February 6, 1972. In between, in October 1968, he attended the Richmond Declaration gathering at Earlham as a student delegate, where Quakers collectively moved from defending individual conscientious-objector &ldquo;privilege&rdquo; toward calling for the abolition of conscription itself &mdash; a shift in posture, from personal exemption to structural objection, that he returns to for the rest of his life.</p>
+      <p>That shift is the hinge for everything else in this archive. Each topic Jeff writes about asks, in its own vocabulary, the same question the Richmond Declaration asked in 1968: is the right response to an unjust system personal non-cooperation, structural change, or both? His answer has sharpened into specific language rather than softened with time. In February 2026, in a piece titled &ldquo;National Quaker Conference on the Draft 1968,&rdquo; he names what he's practicing active objection &mdash; deliberately not &ldquo;resistance&rdquo; &mdash; building the term explicitly on conscientious objection plus nonviolence, mutual aid, and solidarity with Indigenous land-return work, and applying it directly to a new round of automatic draft registration reinstated by the FY2026 defense authorization and to the Minneapolis immigration-enforcement crackdown he was tracking in real time. The word choice is not incidental: where &ldquo;resistance&rdquo; implies confrontation, &ldquo;active objection&rdquo; is closer to what his archive actually shows him doing across sixty years &mdash; witnessing, documenting, feeding people, returning land, and refusing to cooperate with what he judges wrong, without claiming the posture of a combatant.</p>
+    </section>
+
+    <section id="s7">
+      <div class="art-head"><span class="artno">Art. 07</span><h2>Topic register</h2></div>
+      <table class="topic-register">
+        <caption>eight topics, their active span, and where to start reading</caption>
+        <thead><tr><th>Topic</th><th>Key dates</th><th>Start here</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-democracy)"></span>Democracy &amp; Authoritarianism</td>
+            <td class="dates">2016 Pence &middot; 2018 SF 2235 &middot; 2021 Jan 6 &middot; 2025 LA/campus &middot; 2026 Minneapolis</td>
+            <td class="start-here">&ldquo;The center cannot hold&rdquo; (2025-06-18)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-palestine)"></span>Palestine &amp; Gaza</td>
+            <td class="dates">2023 ceasefire call &middot; 2024 ICJ/ICC &middot; 2025 ceasefire &amp; collapse &middot; flotilla strike</td>
+            <td class="start-here">&ldquo;The Modern Face of Empire&rdquo; (2025-06-20)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-war)"></span>War, Peace &amp; C.O.</td>
+            <td class="dates">1968 Richmond &middot; 1969 Jeff's draft card &middot; 1972 break with SSS &middot; 2025 NDAA draft return</td>
+            <td class="start-here">&ldquo;National Quaker Conference on the Draft 1968&rdquo; (2026-02-07)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-pipelines)"></span>Pipelines &amp; Standing Rock</td>
+            <td class="dates">2013 KXL pledge &middot; 2016 Standing Rock &middot; 2017 DAPL sabotage &middot; 2023 Tortuguita</td>
+            <td class="start-here">&ldquo;Movement to Stop Cop City Grows&rdquo; (2023-01-31)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-wetsuweten)"></span>Wet'suwet'en &amp; Unist'ot'en</td>
+            <td class="dates">2019 first raid &middot; 2020 MOU &amp; blockades &middot; 2021 Coyote Camp raid &middot; 2024 convictions</td>
+            <td class="start-here">&ldquo;Canada's Standing Rock&rdquo; (2021-11-23)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-climate)"></span>Climate Change</td>
+            <td class="dates">2015 Exxon &middot; 2018 refugee housing &middot; 2021 COP26 &middot; 2025 LA fires piece</td>
+            <td class="start-here">&ldquo;The Fires in Gaza are the Fires in LA&rdquo; (2025-01-14)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-treaties)"></span>Treaties, Land &amp; Sovereignty</td>
+            <td class="dates">1868 Fort Laramie &middot; 1903 Lone Wolf &middot; 1980 Sioux Nation &middot; 2020 LANDBACK</td>
+            <td class="start-here">&ldquo;Stolen Land&rdquo; (2026-09-23)</td>
+          </tr>
+          <tr>
+            <td class="tag"><span class="sw" style="--c:var(--c-policing)"></span>Race, Policing &amp; Prisons</td>
+            <td class="dates">2014 Ferguson &middot; 2020 Floyd uprising &middot; 2021 Chauvin &middot; 2023 Tortuguita/Nichols</td>
+            <td class="start-here">&ldquo;State Violence&rdquo; (2020-06-13)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="s8">
+      <div class="art-head"><span class="artno">Art. 08</span><h2>About this corpus, and where to go next</h2></div>
+      <p>This draws on the eight verified fact sheets in full and a sample of roughly ten to fifteen original posts per topic &mdash; enough to establish the narrative arc and turning points in each, but not a complete read of the archive.</p>
+      <p>A few directions this could go next: a closer read of the full archive to check whether the sampled arc holds across every post; the eight topics plotted on one shared timeline, to see which real-world events (the 2016 election, 2018 pipeline protests, the 2020 uprisings, the 2023 Gaza war) pulled multiple topics forward at once &mdash; now built as a companion piece, <em>Global Unrest, Surveyed</em>; or a piece written from this synthesis for an audience of Midwest Quakers and Iowa Yearly Meeting (Conservative), since the throughline running underneath it all &mdash; Scattergood, Richmond 1968, active objection &mdash; speaks most directly to that community.</p>
+    </section>
+
+  </article>
+
+  <footer>Compiled from Jeff Kisling&rsquo;s blog archive &middot; channelsintoknowledge.com &middot; fact sheets at kislingjeff-oss.github.io/GlobalUnrestFactSheets</footer>
+</div>
